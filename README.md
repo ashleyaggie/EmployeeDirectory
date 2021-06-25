@@ -1,42 +1,73 @@
 # Employee Directory
 
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
+## Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. [Description](#Description)
+2. [Criteria](#Criteria)
+3. [Installation](#Installation)
+4. [Usage](#Usage)
+5. [Contributing](#Contributing)
+6. [Issues](#Issues)
+7. [Credits](#Credits)
+8. [License](#License)
+9. [Questions](#Questions)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+We weren't given anything to go off of for this assignment except for the criteria, and honestly there wasn't much in the way of usable examples, either. I did a lot of digging around other people who had done the assignment in the past to see how they achieved it, and I used some code from another assignment and modified it to fit the bill.
 
-### `npm start`
+I'll be honest, most of the code for sorting was yoinked from [JaredP17](https://github.com/JaredP17/employee-directory) on GitHub. He had a fantastic method and I sort of understand how it works, but not entirely. I added notes to try to explain my understanding of how it works, and so I can better understand the method.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Deployed website](https://mighty-employee-directory.herokuapp.com/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Example picture:
 
-### `npm test`
+![View of homepage](./public/homepage.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Criteria
 
-### `npm run build`
+Given a table of random users generated from the [Random User API](https://randomuser.me/), when the user loads the page, a table of employees should render. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The user should be able to:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  * Sort the table by at least one category
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  * Filter the users by at least one property.
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Files must be downloaded from Github. Then run npm install to get the necessary node modules. Lastly run npm start.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A ready version is also available at the [deployed website.](https://mighty-employee-directory.herokuapp.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Usage
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This app pulls 50 random created users from the [Random User API](https://randomuser.me/) and places their non-sensitive information in a table. Users can sort each column by ascending or descending, or use the search bar to narrow down results.
+
+## Contributing
+
+For contributions, please create a fork to work on then, when done, create a Pull Request.
+
+## Issues
+
+Submit an Issue through Github for any bugs or problems.
+
+## Credits
+
+Assignment was developed as part of the SMU Coding Bootcamp.
+
+## License
+
+Copyright Ashley Wright 2021
+
+This is covered under the <a href='https://opensource.org/licenses/ISC'>ISC</a> license.
+
+## Questions
+
+Feel free to contact through the following with any questions:
+
+Email: ashleyaggie@aol.com
+
+Github: <a href='https://github.com/ashleyaggie'>ashleyaggie</a>
