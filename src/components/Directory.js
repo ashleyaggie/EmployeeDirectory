@@ -11,7 +11,7 @@ class Directory extends Component {
         results: [],
         filteredResults: [],
         search: "",
-        sort: 'asc'
+        sort: "asc"
     };
 
     get sortDirection() {
@@ -48,25 +48,41 @@ class Directory extends Component {
         this.filterResults(search);
     };
 
-    handleSort = (key) => {
-        if (this.state.sort === 'asc') {
-            this.setState({ sort: 'desc' })
+    handleSort = (key, primary = 0, secondary = 0) => {
+        let sortedEmployees = this.state.filteredResults;
+        if (this.state.sort[key]) {
+          this.setState({
+            filteredResults: sortedEmployees.reverse(),
+            sort: {
+              ...this.sortDirection,
+              [key]: this.state.sort[key] === "asc" ? "desc" : "asc",
+            },
+          });
         } else {
-            this.setState({ sort: 'asc'})
+          sortedEmployees = this.state.filteredResults.sort((a, b) => {
+            a = a[key];
+            b = b[key];
+    
+            if (primary) {
+              if (secondary && a[primary] === b[primary]) {
+                return a[secondary].localeCompare(b[secondary]);
+              }
+              return a[primary].localeCompare(b[primary]);
+            } else {
+              return a.localeCompare(b);
+            }
+          }
+          );
+    
+          this.setState({
+            filteredResults: sortedEmployees,
+            sort: {
+              ...this.sortDirection,
+              [key]: "asc",
+            },
+          });
         }
-
-        if (this.state.sort === 'asc') {
-            const sortRes = this.state.results.sort((a, b) => {
-                return (a.name.first < b.name.first) ? -1 : 1
-            })
-            this.setState({ results: sortRes })
-        } else {
-            const sortRes = this.state.results.sort((a, b) => {
-                return (b.name.first < a.name.first) ? -1 : 1
-            })
-            this.setState({ results: sortRes })
-        }
-    }
+      };
 
     filterResults = (input) => {
         if (input) {
