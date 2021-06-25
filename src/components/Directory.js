@@ -11,15 +11,15 @@ class Directory extends Component {
         results: [],
         filteredResults: [],
         search: "",
-        sort: "asc"
+        sort: ""
     };
 
     get sortDirection() {
         return {
             name: "",
-            phone: "",
             email: "",
-            dov: ""
+            dob: "",
+            phone: ""
         }
     };
 
@@ -48,41 +48,66 @@ class Directory extends Component {
         this.filterResults(search);
     };
 
-    handleSort = (key, primary = 0, secondary = 0) => {
+    // Key - what is being sorted, checks for a first name or date and a last name
+    handleSort = (key, primary, secondary) => {
+        // Sets an easier var for filtered results
         let sortedEmployees = this.state.filteredResults;
+        // If the clicked column is already sorted, then...
         if (this.state.sort[key]) {
+            // Reverse the sort
           this.setState({
             filteredResults: sortedEmployees.reverse(),
+            // Change the value to the opposite
             sort: {
+              // Spreader - resets any columns with values
               ...this.sortDirection,
+              // Change the value of that column in "sort" to opposite
               [key]: this.state.sort[key] === "asc" ? "desc" : "asc",
             },
           });
+        // If the clicked column isn't sorted yet, then...
         } else {
+          // Sort filteredResults
           sortedEmployees = this.state.filteredResults.sort((a, b) => {
+            // a and b are what are to be compared in the sort - similar to mapping, it will go one by one through the results/filtered results
+            // Line below gets value from the results of only the needed column
             a = a[key];
             b = b[key];
     
+            // If there is a primary (ex. name or dob) then...
             if (primary) {
+              // If there is a secondary (last name) and the first names match, then...
               if (secondary && a[primary] === b[primary]) {
+                // Return a number showing whether the last name of the person with the current highest value comes before or after the next person's last name
+                // Sorts each name by first, then last if the first names match
                 return a[secondary].localeCompare(b[secondary]);
               }
+              // If there are no secondary, only primary (dob), then...
+              // Return a number showing whether the date of birth of the person with the current highest value comes before or after the next person's date of birth
               return a[primary].localeCompare(b[primary]);
+            // If no primary (email or phone), then...
             } else {
+              // Return a number showing whether the email or phone of the person with the current highest value comes before or after the next person's phone or email
               return a.localeCompare(b);
             }
           }
           );
     
+          // Set the new state
           this.setState({
+            // Sets the filtered results equal to the new sort order
             filteredResults: sortedEmployees,
+            // Changes the sort
             sort: {
+              // Spreader - resets any columns with values
               ...this.sortDirection,
+              // Set the value of the clicked column to ascending
+              // Will change to opposite from here on out
               [key]: "asc",
             },
           });
         }
-      };
+    };
 
     filterResults = (input) => {
         if (input) {
