@@ -18,7 +18,7 @@
 
 We weren't given anything to go off of for this assignment except for the criteria, and honestly there wasn't much in the way of usable examples, either. I did a lot of digging around other people who had done the assignment in the past to see how they achieved it, and I used some code from another assignment and modified it to fit the bill.
 
-I'll be honest, most of the code for sorting was yoinked from [JaredP17](https://github.com/JaredP17/employee-directory) on GitHub. He had a fantastic method and I sort of understand how it works, but not entirely. I added notes to try to explain my understanding of how it works, and so I can better understand the method.
+I'll be honest, most of the code for sorting was yoinked from [JaredP17](https://github.com/JaredP17/employee-directory) on GitHub. He had a fantastic method and I mostly understand how it works, but I wouldn't have thought of it myself. I added notes to try to explain my understanding of the structure, and in order to study it for future reference and my own comprehension.
 
 [Deployed website](https://mighty-employee-directory.herokuapp.com/)
 
